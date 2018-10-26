@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/frame.css">
+  </head>
+  <body>
+    <div id='app'>
+      <div class="topFrame">
+      <i class="fas fa-window-minimize" @click="frameControl('minimize')"></i>
+      <i class="far fa-window-maximize" @click="frameControl('maximize')"></i>
+      <i class="fas fa-times" @click="frameControl('close')"></i>
+      </div>
+      <b-container class="text-center" style="padding-top: 10px">
+        <b-row>
+          <b-col><h3>Paste youtube video url below :)</h3></b-col>
+        </b-row>
+        <b-row>
+          <b-col><b-form-input style="width:70%;text-align: center;margin: auto;" type="url" v-model="textbox"></b-form-input></b-col>
+        </b-row>
+        <b-row>
+          <b-col style="padding:10px"><b-button @click="submit">Submit</b-button></b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+              <b-card v-if="found">
+                  <h5>{{title}}</h5>
+                  <audio controls style="width: 70%">
+                      <source id='strim' autoplay type="audio/webm" :src="src" :key="src">
+                      Your browser does not support the audio element.
+                    </audio>
+              </b-card>
+            </b-col>
+        </b-row>
+      </b-container>
+      <h2 id='info'></h2>
+    </div>
+    <script src="./libs/vue.js"></script>
+    <script src="./libs/polyfill.min.js"></script>
+    <script src="./libs/bootstrap-vue.js"></script>
+    
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "Youtube-Converter",
+  "version": "1.0.0",
+  "description": "youtube-converter",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Deda",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^3.0.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fs": "0.0.1-security",
+    "ytdl-core": "^0.26.3"
+  }
+}
